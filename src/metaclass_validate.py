@@ -10,8 +10,6 @@ class ValidateMeta(type):
         return super().__new__(cls, name, bases, dct)
 
 # Class using the metaclass
-
-
 class ValidatedClass(metaclass=ValidateMeta):
     def required_method(self):
         return "This method is required!"

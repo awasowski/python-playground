@@ -16,14 +16,10 @@ class PluginMeta(type):
         return cls._registry.get(name)
 
 # Base class using the PluginMeta metaclass
-
-
 class BasePlugin(metaclass=PluginMeta):
     pass
 
 # Example plugins
-
-
 class PluginA(BasePlugin):
     def run(self):
         print("Running PluginA")

@@ -1,8 +1,6 @@
 import functools
 
 # == Simple decorator ==
-
-
 def simple_access_control(func):
     @functools.wraps(func)
     def wrapper(user, *args, **kwargs):
@@ -14,12 +12,9 @@ def simple_access_control(func):
     return wrapper
 
 # Usage
-
-
 @simple_access_control
 def sensitive_function(user, data):
     return f"Sensitive data for {user['name']}"
-
 
 # This should work
 print(sensitive_function({'name': 'admin', 'role': 'admin'}, 'data'))
@@ -30,9 +25,8 @@ try:
 except Exception as e:
     print(e)
 
+
 # == Parametrized decorator ==
-
-
 def access_control(required_role):
     def decorator(func):
         @functools.wraps(func)
@@ -43,7 +37,6 @@ def access_control(required_role):
             return func(user, *args, **kwargs)
         return wrapper
     return decorator
-
 
 @access_control(required_role='admin')
 def delete_user(user):
