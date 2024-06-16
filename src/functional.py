@@ -22,7 +22,6 @@ print(list(even_numbers))  # Output: [2, 4]
 
 
 # Reduce
-
 def add(x, y):
     return x + y
 
